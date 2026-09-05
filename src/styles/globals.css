@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@plugin "@tailwindcss/typography";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@theme {
+  --font-sans: "Geist Variable", sans-serif;
+  --color-emerge-blue: #0250ce;
+}
