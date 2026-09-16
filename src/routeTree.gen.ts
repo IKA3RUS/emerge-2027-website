@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as homeIndexRouteImport } from './routes/(home)/index'
 import { Route as SubmissionsIndexRouteImport } from './routes/submissions/index'
+import { Route as WorkshopsIndexRouteImport } from './routes/workshops/index'
 
 const homeIndexRoute = homeIndexRouteImport.update({
   id: '/(home)/',
@@ -22,31 +23,40 @@ const SubmissionsIndexRoute = SubmissionsIndexRouteImport.update({
   path: '/submissions/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkshopsIndexRoute = WorkshopsIndexRouteImport.update({
+  id: '/workshops/',
+  path: '/workshops/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof homeIndexRoute
   '/submissions/': typeof SubmissionsIndexRoute
+  '/workshops/': typeof WorkshopsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof homeIndexRoute
   '/submissions': typeof SubmissionsIndexRoute
+  '/workshops': typeof WorkshopsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(home)/': typeof homeIndexRoute
   '/submissions/': typeof SubmissionsIndexRoute
+  '/workshops/': typeof WorkshopsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/submissions/'
+  fullPaths: '/' | '/submissions/' | '/workshops/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/submissions'
-  id: '__root__' | '/(home)/' | '/submissions/'
+  to: '/' | '/submissions' | '/workshops'
+  id: '__root__' | '/(home)/' | '/submissions/' | '/workshops/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   homeIndexRoute: typeof homeIndexRoute
   SubmissionsIndexRoute: typeof SubmissionsIndexRoute
+  WorkshopsIndexRoute: typeof WorkshopsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SubmissionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/workshops/': {
+      id: '/workshops/'
+      path: '/workshops'
+      fullPath: '/workshops/'
+      preLoaderRoute: typeof WorkshopsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   homeIndexRoute: homeIndexRoute,
   SubmissionsIndexRoute: SubmissionsIndexRoute,
+  WorkshopsIndexRoute: WorkshopsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
