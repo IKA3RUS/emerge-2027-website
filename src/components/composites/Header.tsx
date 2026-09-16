@@ -40,19 +40,13 @@ function LargeScreenNav() {
 
       <Button
         size="small"
-        nativeButton={false}
         disabled
-        render={
-          <a
-            href=""
-            className="aria-disabled:bg-slate-200 aria-disabled:text-slate-400"
-          >
-            Register
-            <div className="bg-slate-300 px-1 text-slate-400">Opens 16 Dec</div>
-            <ArrowOutwardIcon className="size-4 fill-slate-400" />
-          </a>
-        }
-      />
+        className="disabled:bg-slate-200 disabled:text-slate-400"
+      >
+        Register
+        <div className="bg-slate-300 px-1 text-slate-400">Opens 16 Dec</div>
+        <ArrowOutwardIcon className="size-4 fill-slate-400" />
+      </Button>
     </nav>
   );
 }
@@ -61,7 +55,7 @@ function SmallScreenNav() {
   return (
     <div className="flex xl:hidden">
       <Sheet>
-        <SheetTrigger className="rotate-0 bg-black p-1 transition-[rotate] duration-300 data-popup-open:rotate-180">
+        <SheetTrigger className="rotate-0 bg-black p-1 transition-[rotate] duration-300 hover:cursor-pointer data-popup-open:rotate-180">
           <DensityMediumIcon className="size-6 fill-white mix-blend-difference" />
         </SheetTrigger>
         <SheetContent side="top" className="gap-9 border-8 border-black p-9">
@@ -168,7 +162,7 @@ function Header({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute z-10 mx-auto flex h-25 w-full max-w-[1920px] items-center justify-end gap-4 px-13 transition-[padding] sm:static sm:justify-between sm:px-4 md:px-13",
+        "absolute z-10 mx-auto flex h-25 min-h-25 w-full max-w-[1920px] items-center justify-end gap-4 px-13 transition-[padding] sm:static sm:justify-between sm:px-4 md:px-13",
         className,
       )}
     >

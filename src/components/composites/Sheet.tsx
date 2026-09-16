@@ -67,7 +67,7 @@ function SheetContent({
             data-slot="sheet-close"
             render={
               <Button
-                className="absolute top-8 right-10 size-fit bg-black"
+                className="absolute top-8 right-10 size-fit bg-black hover:bg-black"
                 size="icon-small"
               >
                 <CloseIcon className="size-8 rotate-180 fill-white transition-[rotate,transform] duration-300 group-data-ending-style/sheet-popup:rotate-0 group-data-starting-style/sheet-popup:rotate-0" />

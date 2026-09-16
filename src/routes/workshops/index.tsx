@@ -14,11 +14,12 @@ function RouteComponent() {
     <div className="flex h-screen w-full flex-col overflow-hidden p-2 sm:pt-0">
       <Header />
 
-      <p className="flex min-h-0 flex-1 items-end justify-center gap-1 text-2xl text-emerge-blue uppercase max-sm:mt-28">
-        Stay Tuned.
-        <br />
-        More details on workshops will be announced <em>soon.</em>
-      </p>
+      <main className="mx-auto flex min-h-fit w-full max-w-[1920px] flex-1 flex-col items-start justify-end gap-1 px-13 py-13 text-2xl text-emerge-blue uppercase sm:p-4 md:p-13">
+        <p>Stay Tuned.</p>
+        <p>
+          More details on workshops will be announced <em>soon.</em>
+        </p>
+      </main>
 
       <Footer />
       <CMTAcknowledgement />

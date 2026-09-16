@@ -17,12 +17,16 @@ function Home() {
   return (
     <div className="w-full p-2 sm:pt-0">
       <Header />
-      <HeroSection />
-      <SponsorsSection />
-      <AboutSection />
-      <ThemeSection />
-      <KeyDatesSection />
-      <VenueSection />
+
+      <main className="pb-40">
+        <HeroSection />
+        <SponsorsSection />
+        <AboutSection />
+        <ThemeSection />
+        <KeyDatesSection />
+        <VenueSection />
+      </main>
+
       <Footer />
       <CMTAcknowledgement />
     </div>
