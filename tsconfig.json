@@ -5,7 +5,6 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "paths": {
-      "#/*": ["./src/*"],
       "@/*": ["./src/*"],
       "content-collections": ["./.content-collections/generated"],
       "content-collections/types": ["./content-collections.ts"]
