@@ -14,7 +14,7 @@ export const Route = createFileRoute("/(home)/")({ component: Home });
 function Home() {
   return (
     <div className="h-dvh w-full p-2 sm:pt-0">
-      <Header className="max-sm:hidden" />
+      <Header />
       <HeroSection />
       <AboutSection />
       <ThemeSection />

@@ -1,30 +1,170 @@
 import { Link } from "@tanstack/react-router";
 
+import { Button } from "@/components/primitives/Button";
+
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetClose,
+} from "@/components/composites/Sheet";
+
 import { cn } from "@/lib/cn";
+
+import ArrowOutwardIcon from "@material-symbols/svg-700/sharp/arrow_outward-fill.svg?react";
+import DensityMediumIcon from "@material-symbols/svg-700/sharp/density_medium-fill.svg?react";
+
+function LargeScreenNav() {
+  return (
+    <nav className="hidden h-full items-center gap-6 xl:flex">
+      <Link to="/" className="uppercase">
+        Home
+      </Link>
+      <Link to="/submissions" className="uppercase">
+        Submissions
+      </Link>
+      <Link to="/workshops" className="uppercase">
+        Workshops
+      </Link>
+      <Link to="/dates" className="uppercase">
+        Key Dates
+      </Link>
+      <Link to="/venue" className="uppercase">
+        Venue
+      </Link>
+      <Link to="/contact" className="uppercase">
+        Contact
+      </Link>
+
+      <Button size="small" nativeButton={false} render={<a href="/register" />}>
+        Register
+        <ArrowOutwardIcon />
+      </Button>
+    </nav>
+  );
+}
+
+function SmallScreenNav() {
+  return (
+    <div className="flex xl:hidden">
+      <Sheet>
+        <SheetTrigger className="rotate-0 transition-[rotate] duration-300 data-popup-open:rotate-180">
+          <DensityMediumIcon className="size-6 fill-white mix-blend-difference sm:fill-black" />
+        </SheetTrigger>
+        <SheetContent side="top" className="gap-9 border-8 border-black p-9">
+          <SheetHeader>
+            <SheetTitle>
+              <SheetClose
+                render={
+                  <Link to="/">
+                    <img
+                      src="/images/common/emerge-2027-logo.png"
+                      className="h-12"
+                    />
+                  </Link>
+                }
+              />
+            </SheetTitle>
+          </SheetHeader>
+          <nav className="flex h-full flex-col justify-between">
+            <div className="flex flex-col gap-6">
+              <SheetClose
+                render={
+                  <Link
+                    to="/"
+                    className="border-t border-slate-200 pt-6 uppercase"
+                  >
+                    Home
+                  </Link>
+                }
+              />
+              <SheetClose
+                render={
+                  <Link
+                    to="/submissions"
+                    className="border-t border-slate-200 pt-6 uppercase"
+                  >
+                    Submissions
+                  </Link>
+                }
+              />
+              <SheetClose
+                render={
+                  <Link
+                    to="/workshops"
+                    className="border-t border-slate-200 pt-6 uppercase"
+                  >
+                    Workshops
+                  </Link>
+                }
+              />
+              <SheetClose
+                render={
+                  <Link
+                    to="/dates"
+                    className="border-t border-slate-200 pt-6 uppercase"
+                  >
+                    Key Dates
+                  </Link>
+                }
+              />
+              <SheetClose
+                render={
+                  <Link
+                    to="/venue"
+                    className="border-t border-slate-200 pt-6 uppercase"
+                  >
+                    Venue
+                  </Link>
+                }
+              />
+              <SheetClose
+                render={
+                  <Link
+                    to="/contact"
+                    className="border-t border-slate-200 pt-6 uppercase"
+                  >
+                    Contact
+                  </Link>
+                }
+              />
+            </div>
+
+            <SheetClose
+              render={
+                <Button
+                  disabled
+                  className="disabled:bg-slate-200 disabled:text-slate-400"
+                >
+                  Register
+                  <div className="bg-slate-300 px-1 text-slate-400">
+                    Opens 16 Dec
+                  </div>
+                </Button>
+              }
+            />
+          </nav>
+        </SheetContent>
+      </Sheet>
+    </div>
+  );
+}
 
 function Header({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex h-25 items-center justify-between gap-4 pr-8",
+        "absolute z-10 flex h-25 w-full items-center justify-end gap-4 px-13 transition-[padding] sm:static sm:justify-between sm:px-4 md:px-13",
         className,
       )}
     >
-      <Link to="/">
+      <Link to="/" className="hidden sm:block">
         <img src="/images/common/emerge-2027-logo.png" className="h-12" />
       </Link>
-      <nav className="hidden h-full items-center gap-4 md:flex">
-        <Link to="/" hash="theme">
-          THEME
-        </Link>
-        <Link to="/" hash="schedule">
-          SCHEDULE
-        </Link>
-        <Link to="/" hash="venue">
-          VENUE
-        </Link>
-        <Link to="/call-for-submissions">CALL FOR SUBMISSIONS</Link>
-      </nav>
+      <LargeScreenNav />
+      <SmallScreenNav />
     </div>
   );
 }

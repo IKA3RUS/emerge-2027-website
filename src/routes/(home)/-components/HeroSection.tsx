@@ -83,7 +83,7 @@ function HeroSection() {
           opacity={0.2}
         />
       </Shader>
-      <div className="absolute inset-0 z-5 flex size-full flex-col items-center p-4 transition-[padding] lg:items-start lg:p-12">
+      <div className="absolute inset-0 z-1 flex size-full flex-col items-center p-4 transition-[padding] lg:items-start lg:p-12">
         <div className="flex gap-16 max-lg:hidden">
           <div className="flex flex-col gap-8">
             <p className="text-xs text-slate-300">SPONSORED BY</p>
