@@ -20,10 +20,6 @@ function HeroSection() {
 
   return (
     <div className="relative h-[calc(100dvh-1rem)] bg-black sm:h-[calc(100dvh-6.75rem)]">
-      {/*<img
-        src="/images/home/hero-bg.jpg"
-        className="absolute size-full inset-0"
-      />*/}
       <Shader
         className="absolute inset-0 size-full opacity-0 transition-opacity data-ready:opacity-100"
         onReady={() => setShaderReady(true)}
@@ -129,7 +125,7 @@ function HeroSection() {
 
         <div className="flex flex-col gap-2 lg:flex-row">
           <Button nativeButton={false} render={<Link to="/submissions" />}>
-            Explore Tracks
+            Explore Tracks & Submit Paper
           </Button>
           <Button
             disabled

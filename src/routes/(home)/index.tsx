@@ -6,6 +6,7 @@ import { Header } from "@/components/composites/Header";
 import { AboutSection } from "./-components/AboutSection";
 import { HeroSection } from "./-components/HeroSection";
 import { ScheduleSection } from "./-components/ScheduleSection";
+import { SponsorsSection } from "./-components/SponsorsSection";
 import { ThemeSection } from "./-components/ThemeSection";
 import { VenueSection } from "./-components/VenueSection";
 
@@ -16,6 +17,7 @@ function Home() {
     <div className="h-dvh w-full p-2 sm:pt-0">
       <Header />
       <HeroSection />
+      <SponsorsSection />
       <AboutSection />
       <ThemeSection />
       <ScheduleSection />
