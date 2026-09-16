@@ -4,6 +4,7 @@ import { Footer } from "@/components/composites/Footer";
 import { Header } from "@/components/composites/Header";
 
 import { AboutSection } from "./-components/AboutSection";
+import { CMTAcknowledgement } from "./-components/CMTAcknowledgement";
 import { HeroSection } from "./-components/HeroSection";
 import { KeyDatesSection } from "./-components/KeyDatesSection";
 import { SponsorsSection } from "./-components/SponsorsSection";
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/(home)/")({ component: Home });
 
 function Home() {
   return (
-    <div className="h-dvh w-full p-2 sm:pt-0">
+    <div className="w-full p-2 sm:pt-0">
       <Header />
       <HeroSection />
       <SponsorsSection />
@@ -23,6 +24,7 @@ function Home() {
       <KeyDatesSection />
       <VenueSection />
       <Footer />
+      <CMTAcknowledgement />
     </div>
   );
 }
