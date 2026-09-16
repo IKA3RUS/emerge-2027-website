@@ -2,17 +2,23 @@ import { Button } from "@/components/primitives/Button";
 
 function VenueSection() {
   return (
-    <div
-      id="venue"
-      className="relative mx-auto mt-40 flex max-w-150 scroll-mt-25 flex-col items-start gap-8"
-    >
-      <img src="/images/home/iit-map.jpg" className="" />
-      <div className="absolute top-4 left-4 z-1 flex max-w-80 flex-col bg-white p-4">
-        <h2 className="mb-2 text-sm text-emerge-blue select-none">VENUE</h2>
+    <div className="relative mx-auto mt-40 flex max-w-150 scroll-mt-25 flex-col items-start gap-8 p-4">
+      <img
+        src="/images/home/iit-map.jpg"
+        className="absolute inset-0 size-full object-cover"
+      />
+      <div className="top-4 left-4 z-1 flex max-w-80 flex-col bg-white p-4">
+        <h2 className="mb-2 text-sm font-medium text-emerge-blue select-none">
+          VENUE
+        </h2>
         <p>
-          <strong>PC Saxena Auditorium</strong>
+          <strong>IDC School of Design</strong>
         </p>
-        <p>Academic Section, IIT Area, Powai, Mumbai, Maharashtra 400076</p>
+        <p>
+          Indian Institute of Technology Bombay
+          <br />
+          Powai, Mumbai, Maharashtra 400076
+        </p>
         <Button
           className="mt-4"
           nativeButton={false}
