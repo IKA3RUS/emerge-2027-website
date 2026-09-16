@@ -61,8 +61,8 @@ function SmallScreenNav() {
   return (
     <div className="flex xl:hidden">
       <Sheet>
-        <SheetTrigger className="rotate-0 transition-[rotate] duration-300 data-popup-open:rotate-180">
-          <DensityMediumIcon className="size-6 fill-white mix-blend-difference sm:fill-black" />
+        <SheetTrigger className="rotate-0 bg-black p-1 transition-[rotate] duration-300 data-popup-open:rotate-180">
+          <DensityMediumIcon className="size-6 fill-white mix-blend-difference" />
         </SheetTrigger>
         <SheetContent side="top" className="gap-9 border-8 border-black p-9">
           <SheetHeader>
