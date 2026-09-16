@@ -38,10 +38,21 @@ function LargeScreenNav() {
         Contact
       </Link>
 
-      <Button size="small" nativeButton={false} render={<a href="/register" />}>
-        Register
-        <ArrowOutwardIcon />
-      </Button>
+      <Button
+        size="small"
+        nativeButton={false}
+        disabled
+        render={
+          <a
+            href=""
+            className="aria-disabled:bg-slate-200 aria-disabled:text-slate-400"
+          >
+            Register
+            <div className="bg-slate-300 px-1 text-slate-400">Opens 16 Dec</div>
+            <ArrowOutwardIcon className="size-4 fill-slate-400" />
+          </a>
+        }
+      />
     </nav>
   );
 }
@@ -142,6 +153,7 @@ function SmallScreenNav() {
                   <div className="bg-slate-300 px-1 text-slate-400">
                     Opens 16 Dec
                   </div>
+                  <ArrowOutwardIcon className="size-4 fill-slate-400" />
                 </Button>
               }
             />
@@ -156,7 +168,7 @@ function Header({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute z-10 flex h-25 w-full items-center justify-end gap-4 px-13 transition-[padding] sm:static sm:justify-between sm:px-4 md:px-13",
+        "absolute z-10 mx-auto flex h-25 w-full max-w-[1920px] items-center justify-end gap-4 px-13 transition-[padding] sm:static sm:justify-between sm:px-4 md:px-13",
         className,
       )}
     >
