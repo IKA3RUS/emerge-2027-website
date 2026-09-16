@@ -17,7 +17,7 @@ const extensions = [
   commentComponentsExtension({
     transformComponent: (node) =>
       node.name === "track"
-        ? { ...node, tagName: "track", properties: node.attributes }
+        ? { ...node, tagName: "conference-track", properties: node.attributes }
         : node,
   }),
 ];
@@ -31,7 +31,7 @@ const markdownComponents = {
       {...props}
     />
   ),
-  track: Track,
+  "conference-track": Track,
 } satisfies MarkdownComponents;
 
 export const Route = createFileRoute("/submissions/")({
