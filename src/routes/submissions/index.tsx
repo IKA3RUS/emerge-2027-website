@@ -1,22 +1,38 @@
+import { commentComponentsExtension } from "@tanstack/markdown/extensions/comment-components";
+import { parseMarkdown } from "@tanstack/markdown/parser";
+import {
+  Markdown as MarkdownContent,
+  type MarkdownComponents,
+} from "@tanstack/markdown/react";
 import { createFileRoute } from "@tanstack/react-router";
-
-import { allMarkdowns } from "content-collections";
-import type { Markdown } from "content-collections/types";
 
 import { Footer } from "@/components/composites/Footer";
 import { Header } from "@/components/composites/Header";
 
-function getMarkdown(slug: string): Markdown {
-  const markdown = allMarkdowns.find(
-    (markdown) => markdown._meta.path === slug,
-  );
-  if (!markdown) {
-    throw new Error(`content-collections: no markdown found for "${slug}"`);
-  }
-  return markdown;
-}
+import tracksSource from "@/data/markdown/tracks.md?raw";
 
-const tracksMarkdown = getMarkdown("tracks");
+import { Track } from "./-components/Track";
+
+const extensions = [
+  commentComponentsExtension({
+    transformComponent: (node) =>
+      node.name === "track"
+        ? { ...node, tagName: "track", properties: node.attributes }
+        : node,
+  }),
+];
+
+const tracksDocument = parseMarkdown(tracksSource, { extensions });
+
+const markdownComponents = {
+  h2: (props) => (
+    <h2
+      className="px-4 font-medium text-emerge-blue select-none lg:px-12"
+      {...props}
+    />
+  ),
+  track: Track,
+} satisfies MarkdownComponents;
 
 export const Route = createFileRoute("/submissions/")({
   head: () => ({
@@ -27,20 +43,23 @@ export const Route = createFileRoute("/submissions/")({
 
 function CallForSubmissions() {
   return (
-    <div className="h-dvh w-full p-2 sm:pt-0">
+    <div className="w-full p-2 sm:pt-0">
       <Header />
-      <main>
-        <section className="mx-auto max-w-3xl px-4 pt-16 pb-8">
-          <h1 className="text-4xl font-medium">Call for Submissions</h1>
-          <p className="mt-4 text-neutral-600">
+      <main className="mt-28">
+        <section className="mx-auto flex w-full max-w-200 flex-col gap-4 p-4 pt-0 transition-[padding] lg:p-0">
+          <h1 className="text-5xl font-medium tracking-tight lowercase md:text-7xl">
+            Call for papers
+          </h1>
+          <p>
             Emerge 2027 invites original research and practice-based
             contributions across the tracks below.
           </p>
         </section>
-        <article
-          className="mx-auto prose max-w-3xl px-4 pb-16 prose-neutral"
-          dangerouslySetInnerHTML={{ __html: tracksMarkdown.html }}
-        />
+        <article className="mt-12 flex w-full flex-col gap-2">
+          <MarkdownContent components={markdownComponents}>
+            {tracksDocument}
+          </MarkdownContent>
+        </article>
       </main>
       <Footer />
     </div>
