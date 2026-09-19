@@ -8,13 +8,13 @@ function VenueSection() {
         className="absolute inset-0 size-full object-cover"
       />
       <div className="top-4 left-4 z-1 flex max-w-80 flex-col bg-white p-4">
-        <h2 className="mb-2 text-sm font-medium text-emerge-blue select-none">
+        <h2 className="mb-2 text-lg font-medium text-emerge-blue select-none">
           VENUE
         </h2>
-        <p>
+        <p className="text-lg">
           <strong>IDC School of Design</strong>
         </p>
-        <p>
+        <p className="text-sm">
           Indian Institute of Technology Bombay
           <br />
           Powai, Mumbai, Maharashtra 400076

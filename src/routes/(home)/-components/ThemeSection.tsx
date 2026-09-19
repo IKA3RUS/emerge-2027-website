@@ -5,7 +5,9 @@ function ThemeSection() {
       className="relative mt-40 flex h-fit scroll-mt-25 justify-between bg-amber-400 p-4 text-white lg:p-12"
     >
       <div className="mx-auto flex w-full max-w-[1920px] flex-col gap-2">
-        <h2 className="font-medium text-emerge-blue select-none">THEME</h2>
+        <h2 className="text-lg font-medium text-emerge-blue select-none">
+          THEME
+        </h2>
 
         <div className="flex flex-col gap-1 lg:flex-row">
           <div className="w-full bg-emerge-blue p-12 text-7xl font-light selection:bg-amber-400 selection:text-emerge-blue lg:w-min">
