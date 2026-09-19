@@ -16,42 +16,85 @@ import { cn } from "@/lib/cn";
 import ArrowOutwardIcon from "@material-symbols/svg-700/sharp/arrow_outward-fill.svg?react";
 import DensityMediumIcon from "@material-symbols/svg-700/sharp/density_medium-fill.svg?react";
 
-function LargeScreenNav() {
+type NavLinkKey =
+  | "home"
+  | "submissions"
+  | "workshops"
+  | "dates"
+  | "venue"
+  | "committee"
+  | "register";
+
+const NAV_LINK_ROUTES: Record<Exclude<NavLinkKey, "register">, string> = {
+  home: "/",
+  submissions: "/submissions",
+  workshops: "/workshops",
+  dates: "/dates",
+  venue: "/venue",
+  committee: "/committee",
+};
+
+const NAV_LINK_LABELS: Record<NavLinkKey, string> = {
+  home: "Home",
+  submissions: "Submissions",
+  workshops: "Workshops",
+  dates: "Key Dates",
+  venue: "Venue",
+  committee: "Committee",
+  register: "Register",
+};
+
+const DEFAULT_NAV_LINKS: NavLinkKey[] = [
+  "home",
+  "submissions",
+  "workshops",
+  "dates",
+  "venue",
+  "committee",
+  "register",
+];
+
+function LargeScreenNav({
+  links = DEFAULT_NAV_LINKS,
+}: {
+  links?: NavLinkKey[];
+}) {
   return (
     <nav className="hidden h-full items-center gap-6 xl:flex">
-      <Link to="/" className="uppercase">
-        Home
-      </Link>
-      <Link to="/submissions" className="uppercase">
-        Submissions
-      </Link>
-      <Link to="/workshops" className="uppercase">
-        Workshops
-      </Link>
-      <Link to="/dates" className="uppercase">
-        Key Dates
-      </Link>
-      <Link to="/venue" className="uppercase">
-        Venue
-      </Link>
-      <Link to="/committee" className="uppercase">
-        Committee
-      </Link>
-
-      <Button
-        size="small"
-        disabled
-        className="disabled:bg-slate-200 disabled:text-slate-400"
-      >
-        Register
-        <div className="bg-slate-300 px-1 text-slate-400">Opens 16 Dec</div>
-        <ArrowOutwardIcon className="size-4 fill-slate-400" />
-      </Button>
+      {links.map((link) =>
+        link === "register" ? (
+          <Button
+            key={link}
+            size="small"
+            disabled
+            className="disabled:bg-slate-200 disabled:text-slate-400"
+          >
+            {NAV_LINK_LABELS.register}
+            <div className="bg-slate-300 px-1 text-slate-400">
+              Opens 16 Dec
+            </div>
+            <ArrowOutwardIcon className="size-4 fill-slate-400" />
+          </Button>
+        ) : (
+          <Link key={link} to={NAV_LINK_ROUTES[link]} className="uppercase">
+            {NAV_LINK_LABELS[link]}
+          </Link>
+        ),
+      )}
     </nav>
   );
 }
 
-function SmallScreenNav() {
+function SmallScreenNav({
+  links = DEFAULT_NAV_LINKS,
+}: {
+  links?: NavLinkKey[];
+}) {
+  const showRegister = links.includes("register");
+  const linkItems = links.filter(
+    (link): link is Exclude<NavLinkKey, "register"> => link !== "register",
+  );
+
   return (
     <div className="flex xl:hidden">
       <Sheet>
@@ -75,82 +118,37 @@ function SmallScreenNav() {
           </SheetHeader>
           <nav className="flex h-full flex-col justify-between">
             <div className="flex flex-col gap-6">
-              <SheetClose
-                render={
-                  <Link
-                    to="/"
-                    className="border-t border-slate-200 pt-6 uppercase"
-                  >
-                    Home
-                  </Link>
-                }
-              />
-              <SheetClose
-                render={
-                  <Link
-                    to="/call-for-papers"
-                    className="border-t border-slate-200 pt-6 uppercase"
-                  >
-                    Submissions
-                  </Link>
-                }
-              />
-              <SheetClose
-                render={
-                  <Link
-                    to="/workshops"
-                    className="border-t border-slate-200 pt-6 uppercase"
-                  >
-                    Workshops
-                  </Link>
-                }
-              />
-              <SheetClose
-                render={
-                  <Link
-                    to="/dates"
-                    className="border-t border-slate-200 pt-6 uppercase"
-                  >
-                    Key Dates
-                  </Link>
-                }
-              />
-              <SheetClose
-                render={
-                  <Link
-                    to="/venue"
-                    className="border-t border-slate-200 pt-6 uppercase"
-                  >
-                    Venue
-                  </Link>
-                }
-              />
-              <SheetClose
-                render={
-                  <Link
-                    to="/committee"
-                    className="border-t border-slate-200 pt-6 uppercase"
-                  >
-                    Committee
-                  </Link>
-                }
-              />
+              {linkItems.map((link) => (
+                <SheetClose
+                  key={link}
+                  render={
+                    <Link
+                      to={NAV_LINK_ROUTES[link]}
+                      className="border-t border-slate-200 pt-6 uppercase"
+                    >
+                      {NAV_LINK_LABELS[link]}
+                    </Link>
+                  }
+                />
+              ))}
             </div>
 
-            <SheetClose
-              render={
-                <Button
-                  disabled
-                  className="disabled:bg-slate-200 disabled:text-slate-400"
-                >
-                  Register
-                  <div className="bg-slate-300 px-1 text-slate-400">
-                    Opens 16 Dec
-                  </div>
-                  <ArrowOutwardIcon className="size-4 fill-slate-400" />
-                </Button>
-              }
-            />
+            {showRegister && (
+              <SheetClose
+                render={
+                  <Button
+                    disabled
+                    className="disabled:bg-slate-200 disabled:text-slate-400"
+                  >
+                    {NAV_LINK_LABELS.register}
+                    <div className="bg-slate-300 px-1 text-slate-400">
+                      Opens 16 Dec
+                    </div>
+                    <ArrowOutwardIcon className="size-4 fill-slate-400" />
+                  </Button>
+                }
+              />
+            )}
           </nav>
         </SheetContent>
       </Sheet>
@@ -158,7 +156,15 @@ function SmallScreenNav() {
   );
 }
 
-function Header({ className }: { className?: string }) {
+function Header({
+  className,
+  largeScreenNavLinks,
+  smallScreenNavLinks,
+}: {
+  className?: string;
+  largeScreenNavLinks?: NavLinkKey[];
+  smallScreenNavLinks?: NavLinkKey[];
+}) {
   return (
     <div
       className={cn(
@@ -169,8 +175,8 @@ function Header({ className }: { className?: string }) {
       <Link to="/" className="hidden sm:block">
         <img src="/images/common/emerge-2027-logo.png" className="h-12" />
       </Link>
-      <LargeScreenNav />
-      <SmallScreenNav />
+      <LargeScreenNav links={largeScreenNavLinks} />
+      <SmallScreenNav links={smallScreenNavLinks} />
     </div>
   );
 }

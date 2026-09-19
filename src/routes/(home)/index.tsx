@@ -17,7 +17,16 @@ export const Route = createFileRoute("/(home)/")({ component: Home });
 function Home() {
   return (
     <div className="w-full p-2 sm:pt-0">
-      <Header />
+      <Header
+        largeScreenNavLinks={[
+          "home",
+          "submissions",
+          "workshops",
+          "dates",
+          "venue",
+          "committee",
+        ]}
+      />
 
       <main className="pb-40">
         <HeroSection />
