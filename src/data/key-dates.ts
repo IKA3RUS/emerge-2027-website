@@ -3,7 +3,6 @@ export type KeyDateEvent = {
   date: string;
   endDate?: string;
   name: string;
-  featured?: boolean;
 };
 
 const events: KeyDateEvent[] = [
@@ -36,14 +35,12 @@ const events: KeyDateEvent[] = [
     id: "workshops",
     date: "2027-02-25T00:00:00",
     name: "Workshops",
-    featured: true,
   },
   {
     id: "conference",
     date: "2027-02-26T00:00:00",
     endDate: "2027-02-27T00:00:00",
     name: "Conference",
-    featured: true,
   },
 ];
 

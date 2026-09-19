@@ -31,22 +31,6 @@ function todayInConferenceTz(): Date {
   return new Date(`${parts.year}-${parts.month}-${parts.day}T00:00:00`);
 }
 
-function groupItemsByYear(
-  items: KeyDateEvent[],
-): { year: number; items: KeyDateEvent[] }[] {
-  const groups: { year: number; items: KeyDateEvent[] }[] = [];
-  for (const item of items) {
-    const year = new Date(item.date).getFullYear();
-    const lastGroup = groups.at(-1);
-    if (lastGroup?.year === year) {
-      lastGroup.items.push(item);
-    } else {
-      groups.push({ year, items: [item] });
-    }
-  }
-  return groups;
-}
-
 function getSurroundingItems(
   items: KeyDateEvent[],
   today: Date,
@@ -63,8 +47,6 @@ function getSurroundingItems(
   return { prev, next: undefined };
 }
 
-const keyDatesByYear = groupItemsByYear(keyDates);
-
 function TodayMarker({ top }: { top: number | null }) {
   if (top === null) return null;
 
@@ -73,7 +55,9 @@ function TodayMarker({ top }: { top: number | null }) {
       style={{ top }}
       className="absolute -left-32 flex w-24 items-start justify-end max-lg:hidden"
     >
-      <span className="bg-amber-400 px-2 py-1 text-sm text-black">TODAY</span>
+      <span className="bg-amber-400 px-1 text-xs text-black uppercase">
+        Today
+      </span>
       <span className="h-0.5 w-4 bg-amber-400" />
     </div>
   );
@@ -96,16 +80,11 @@ function formatDayMonth(date: Date): { day: string; month: string } {
 function KeyDateItem({ item, current, today, registerRef }: KeyDateItemProps) {
   const past = new Date(item.endDate ?? item.date) < today;
 
-  const variant = current
-    ? "current"
-    : past
-      ? "past"
-      : item.featured
-        ? "featured"
-        : "default";
+  const when = current ? "current" : past ? "past" : "future";
 
   const start = formatDayMonth(new Date(item.date));
   const end = item.endDate ? formatDayMonth(new Date(item.endDate)) : null;
+  const year = new Date(item.date).getFullYear();
 
   const label = end
     ? start.month === end.month
@@ -122,21 +101,22 @@ function KeyDateItem({ item, current, today, registerRef }: KeyDateItemProps) {
     <li ref={ref} className="flex gap-1">
       <time
         dateTime={item.date}
-        className="w-20 border-t border-slate-200 text-sm text-black transition-[width] sm:w-30"
+        className="flex w-20 flex-col border-t border-slate-200 pt-px text-sm text-black transition-[width] sm:w-30"
       >
-        {label}
+        <span>{label}</span>
+        <span>{year}</span>
       </time>
       <div
-        data-variant={variant}
-        className="group/key-date-item-label flex h-20 flex-1 flex-col items-start justify-center gap-2 rounded-full px-6 py-4 data-[variant=current]:rounded-none data-[variant=current]:bg-black data-[variant=current]:font-medium data-[variant=current]:text-white data-[variant=default]:bg-gray-100 data-[variant=default]:font-medium data-[variant=default]:text-black data-[variant=featured]:bg-emerge-blue data-[variant=featured]:text-white data-[variant=past]:bg-gray-100 data-[variant=past]:text-slate-400 sm:flex-row sm:items-center sm:justify-between"
+        data-when={when}
+        className="group/key-date-item-label flex h-20 flex-1 flex-col items-start justify-center gap-2 rounded-full bg-gray-100 px-6 py-4 data-[when=current]:rounded-none data-[when=current]:font-medium data-[when=current]:text-black data-[when=future]:font-medium data-[when=future]:text-black data-[when=past]:text-slate-400 sm:flex-row sm:items-center sm:justify-between"
       >
         <span className="order-2 sm:order-1">{item.name}</span>
-        {variant === "current" && (
+        {when === "current" && (
           <span className="order-1 bg-amber-400 px-1 text-xs text-black uppercase sm:order-2">
             Up Next
           </span>
         )}
-        {variant === "past" && (
+        {when === "past" && (
           <CheckCircleIcon className="order-1 size-5 fill-black sm:order-2" />
         )}
       </div>
@@ -240,24 +220,17 @@ export function KeyDatesSection() {
         <div ref={listRef} className="flex flex-col gap-8">
           <h2 className="sr-only text-emerge-blue">KEY DATES</h2>
 
-          {keyDatesByYear.map((group) => (
-            <section key={group.year}>
-              <h3 className="mb-3 inline-block bg-gray-100 px-3 py-2 font-medium">
-                {group.year}
-              </h3>
-              <ul className="flex flex-col gap-px">
-                {group.items.map((item) => (
-                  <KeyDateItem
-                    key={item.id}
-                    item={item}
-                    current={item === currentItem}
-                    today={today}
-                    registerRef={registerItemRef}
-                  />
-                ))}
-              </ul>
-            </section>
-          ))}
+          <ul className="flex flex-col gap-px">
+            {keyDates.map((item) => (
+              <KeyDateItem
+                key={item.id}
+                item={item}
+                current={item === currentItem}
+                today={today}
+                registerRef={registerItemRef}
+              />
+            ))}
+          </ul>
         </div>
       </div>
     </div>
