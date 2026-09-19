@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Footer } from "@/components/composites/Footer";
-import { Header } from "@/components/composites/Header";
-
-import { CMTAcknowledgement } from "../(home)/-components/CMTAcknowledgement";
+import { CMTAcknowledgement } from "@/components/layout/CMTAcknowledgement";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 
 export const Route = createFileRoute("/workshops/")({
   component: RouteComponent,

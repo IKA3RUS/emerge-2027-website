@@ -6,8 +6,9 @@ import {
 } from "@tanstack/markdown/react";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Footer } from "@/components/composites/Footer";
-import { Header } from "@/components/composites/Header";
+import { CMTAcknowledgement } from "@/components/layout/CMTAcknowledgement";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 
 import tracksSource from "@/data/markdown/tracks.md?raw";
 
@@ -62,6 +63,7 @@ function CallForSubmissions() {
         </article>
       </main>
       <Footer />
+      <CMTAcknowledgement />
     </div>
   );
 }

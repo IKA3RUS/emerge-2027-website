@@ -2,11 +2,11 @@ import { useRef } from "react";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Footer } from "@/components/composites/Footer";
-import { Header } from "@/components/composites/Header";
+import { CMTAcknowledgement } from "@/components/layout/CMTAcknowledgement";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 
 import { contacts } from "@/data/contacts";
-import { CMTAcknowledgement } from "@/routes/(home)/-components/CMTAcknowledgement";
 
 import { ContactCard } from "./-components/ContactCard";
 
