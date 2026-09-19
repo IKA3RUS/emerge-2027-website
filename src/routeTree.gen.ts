@@ -10,15 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as homeIndexRouteImport } from './routes/(home)/index'
+import { Route as CallForPapersIndexRouteImport } from './routes/call-for-papers/index'
 import { Route as ContactIndexRouteImport } from './routes/contact/index'
 import { Route as DatesIndexRouteImport } from './routes/dates/index'
-import { Route as SubmissionsIndexRouteImport } from './routes/submissions/index'
 import { Route as VenueIndexRouteImport } from './routes/venue/index'
 import { Route as WorkshopsIndexRouteImport } from './routes/workshops/index'
 
 const homeIndexRoute = homeIndexRouteImport.update({
   id: '/(home)/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallForPapersIndexRoute = CallForPapersIndexRouteImport.update({
+  id: '/call-for-papers/',
+  path: '/call-for-papers/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactIndexRoute = ContactIndexRouteImport.update({
@@ -29,11 +34,6 @@ const ContactIndexRoute = ContactIndexRouteImport.update({
 const DatesIndexRoute = DatesIndexRouteImport.update({
   id: '/dates/',
   path: '/dates/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SubmissionsIndexRoute = SubmissionsIndexRouteImport.update({
-  id: '/submissions/',
-  path: '/submissions/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VenueIndexRoute = VenueIndexRouteImport.update({
@@ -49,50 +49,55 @@ const WorkshopsIndexRoute = WorkshopsIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof homeIndexRoute
+  '/call-for-papers/': typeof CallForPapersIndexRoute
   '/contact/': typeof ContactIndexRoute
   '/dates/': typeof DatesIndexRoute
-  '/submissions/': typeof SubmissionsIndexRoute
   '/venue/': typeof VenueIndexRoute
   '/workshops/': typeof WorkshopsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof homeIndexRoute
+  '/call-for-papers': typeof CallForPapersIndexRoute
   '/contact': typeof ContactIndexRoute
   '/dates': typeof DatesIndexRoute
-  '/submissions': typeof SubmissionsIndexRoute
   '/venue': typeof VenueIndexRoute
   '/workshops': typeof WorkshopsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(home)/': typeof homeIndexRoute
+  '/call-for-papers/': typeof CallForPapersIndexRoute
   '/contact/': typeof ContactIndexRoute
   '/dates/': typeof DatesIndexRoute
-  '/submissions/': typeof SubmissionsIndexRoute
   '/venue/': typeof VenueIndexRoute
   '/workshops/': typeof WorkshopsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact/' | '/dates/' | '/submissions/' | '/venue/' | '/workshops/'
+    | '/'
+    | '/call-for-papers/'
+    | '/contact/'
+    | '/dates/'
+    | '/venue/'
+    | '/workshops/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/dates' | '/submissions' | '/venue' | '/workshops'
+  to: '/' | '/call-for-papers' | '/contact' | '/dates' | '/venue' | '/workshops'
   id:
     | '__root__'
     | '/(home)/'
+    | '/call-for-papers/'
     | '/contact/'
     | '/dates/'
-    | '/submissions/'
     | '/venue/'
     | '/workshops/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   homeIndexRoute: typeof homeIndexRoute
+  CallForPapersIndexRoute: typeof CallForPapersIndexRoute
   ContactIndexRoute: typeof ContactIndexRoute
   DatesIndexRoute: typeof DatesIndexRoute
-  SubmissionsIndexRoute: typeof SubmissionsIndexRoute
   VenueIndexRoute: typeof VenueIndexRoute
   WorkshopsIndexRoute: typeof WorkshopsIndexRoute
 }
@@ -104,6 +109,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof homeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/call-for-papers/': {
+      id: '/call-for-papers/'
+      path: '/call-for-papers'
+      fullPath: '/call-for-papers/'
+      preLoaderRoute: typeof CallForPapersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact/': {
@@ -118,13 +130,6 @@ declare module '@tanstack/react-router' {
       path: '/dates'
       fullPath: '/dates/'
       preLoaderRoute: typeof DatesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/submissions/': {
-      id: '/submissions/'
-      path: '/submissions'
-      fullPath: '/submissions/'
-      preLoaderRoute: typeof SubmissionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/venue/': {
@@ -146,9 +151,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   homeIndexRoute: homeIndexRoute,
+  CallForPapersIndexRoute: CallForPapersIndexRoute,
   ContactIndexRoute: ContactIndexRoute,
   DatesIndexRoute: DatesIndexRoute,
-  SubmissionsIndexRoute: SubmissionsIndexRoute,
   VenueIndexRoute: VenueIndexRoute,
   WorkshopsIndexRoute: WorkshopsIndexRoute,
 }

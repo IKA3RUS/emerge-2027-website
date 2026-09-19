@@ -88,7 +88,7 @@ function SmallScreenNav() {
               <SheetClose
                 render={
                   <Link
-                    to="/submissions"
+                    to="/call-for-papers"
                     className="border-t border-slate-200 pt-6 uppercase"
                   >
                     Submissions

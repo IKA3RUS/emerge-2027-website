@@ -126,8 +126,8 @@ function HeroSection() {
         </div>
 
         <div className="flex flex-col gap-2 lg:flex-row">
-          <Button nativeButton={false} render={<Link to="/submissions" />}>
-            Explore Tracks & Submit Paper
+          <Button nativeButton={false} render={<Link to="/call-for-papers" />}>
+            View Call For Papers
           </Button>
           <Button
             disabled

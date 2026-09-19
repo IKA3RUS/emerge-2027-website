@@ -34,7 +34,7 @@ const markdownComponents = {
   "conference-track": Track,
 } satisfies MarkdownComponents;
 
-export const Route = createFileRoute("/submissions/")({
+export const Route = createFileRoute("/call-for-papers/")({
   head: () => ({
     meta: [{ title: "Submissions • Emerge 2027" }],
   }),
