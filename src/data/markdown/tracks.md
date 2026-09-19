@@ -17,7 +17,7 @@ Sub-themes may include, but are not limited to:
 
 <!-- ::end:track -->
 
-<!-- ::start:track name="Product Design Pedagogy and Product Design Theory" chair="Prof. Soubhik Dutta. Department of Design, IIT Kanpur." -->
+<!-- ::start:track name="Product Design Pedagogy and Product Design Theory" chair="Prof. Shoubhik Dutta Roy. Department of Design, IIT Kanpur." -->
 
 Product design is continually evolving in response to changing technologies, social contexts, and professional practices. This track invites contributions that examine how product design is taught, learned, understood, and theorised in this changing landscape. We welcome research and practice-based reflections on pedagogical approaches, curriculum development, design methods, and theoretical perspectives that contribute to the development of product design as a discipline. The track encourages critical discussions on preparing future designers while questioning and expanding the knowledge, values, and foundations that shape product design.
 
