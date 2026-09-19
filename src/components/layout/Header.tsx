@@ -34,8 +34,8 @@ function LargeScreenNav() {
       <Link to="/venue" className="uppercase">
         Venue
       </Link>
-      <Link to="/contact" className="uppercase">
-        Contact
+      <Link to="/committee" className="uppercase">
+        Committee
       </Link>
 
       <Button
@@ -128,10 +128,10 @@ function SmallScreenNav() {
               <SheetClose
                 render={
                   <Link
-                    to="/contact"
+                    to="/committee"
                     className="border-t border-slate-200 pt-6 uppercase"
                   >
-                    Contact
+                    Committee
                   </Link>
                 }
               />

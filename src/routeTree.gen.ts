@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as homeIndexRouteImport } from './routes/(home)/index'
 import { Route as CallForPapersIndexRouteImport } from './routes/call-for-papers/index'
-import { Route as ContactIndexRouteImport } from './routes/contact/index'
+import { Route as CommitteeIndexRouteImport } from './routes/committee/index'
 import { Route as DatesIndexRouteImport } from './routes/dates/index'
 import { Route as VenueIndexRouteImport } from './routes/venue/index'
 import { Route as WorkshopsIndexRouteImport } from './routes/workshops/index'
@@ -26,9 +26,9 @@ const CallForPapersIndexRoute = CallForPapersIndexRouteImport.update({
   path: '/call-for-papers/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContactIndexRoute = ContactIndexRouteImport.update({
-  id: '/contact/',
-  path: '/contact/',
+const CommitteeIndexRoute = CommitteeIndexRouteImport.update({
+  id: '/committee/',
+  path: '/committee/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatesIndexRoute = DatesIndexRouteImport.update({
@@ -50,7 +50,7 @@ const WorkshopsIndexRoute = WorkshopsIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof homeIndexRoute
   '/call-for-papers/': typeof CallForPapersIndexRoute
-  '/contact/': typeof ContactIndexRoute
+  '/committee/': typeof CommitteeIndexRoute
   '/dates/': typeof DatesIndexRoute
   '/venue/': typeof VenueIndexRoute
   '/workshops/': typeof WorkshopsIndexRoute
@@ -58,7 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof homeIndexRoute
   '/call-for-papers': typeof CallForPapersIndexRoute
-  '/contact': typeof ContactIndexRoute
+  '/committee': typeof CommitteeIndexRoute
   '/dates': typeof DatesIndexRoute
   '/venue': typeof VenueIndexRoute
   '/workshops': typeof WorkshopsIndexRoute
@@ -67,7 +67,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(home)/': typeof homeIndexRoute
   '/call-for-papers/': typeof CallForPapersIndexRoute
-  '/contact/': typeof ContactIndexRoute
+  '/committee/': typeof CommitteeIndexRoute
   '/dates/': typeof DatesIndexRoute
   '/venue/': typeof VenueIndexRoute
   '/workshops/': typeof WorkshopsIndexRoute
@@ -77,17 +77,18 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/call-for-papers/'
-    | '/contact/'
+    | '/committee/'
     | '/dates/'
     | '/venue/'
     | '/workshops/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/call-for-papers' | '/contact' | '/dates' | '/venue' | '/workshops'
+  to:
+    '/' | '/call-for-papers' | '/committee' | '/dates' | '/venue' | '/workshops'
   id:
     | '__root__'
     | '/(home)/'
     | '/call-for-papers/'
-    | '/contact/'
+    | '/committee/'
     | '/dates/'
     | '/venue/'
     | '/workshops/'
@@ -96,7 +97,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   homeIndexRoute: typeof homeIndexRoute
   CallForPapersIndexRoute: typeof CallForPapersIndexRoute
-  ContactIndexRoute: typeof ContactIndexRoute
+  CommitteeIndexRoute: typeof CommitteeIndexRoute
   DatesIndexRoute: typeof DatesIndexRoute
   VenueIndexRoute: typeof VenueIndexRoute
   WorkshopsIndexRoute: typeof WorkshopsIndexRoute
@@ -118,11 +119,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CallForPapersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/contact/': {
-      id: '/contact/'
-      path: '/contact'
-      fullPath: '/contact/'
-      preLoaderRoute: typeof ContactIndexRouteImport
+    '/committee/': {
+      id: '/committee/'
+      path: '/committee'
+      fullPath: '/committee/'
+      preLoaderRoute: typeof CommitteeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dates/': {
@@ -152,7 +153,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   homeIndexRoute: homeIndexRoute,
   CallForPapersIndexRoute: CallForPapersIndexRoute,
-  ContactIndexRoute: ContactIndexRoute,
+  CommitteeIndexRoute: CommitteeIndexRoute,
   DatesIndexRoute: DatesIndexRoute,
   VenueIndexRoute: VenueIndexRoute,
   WorkshopsIndexRoute: WorkshopsIndexRoute,

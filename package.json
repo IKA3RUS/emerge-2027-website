@@ -28,7 +28,6 @@
     "@tanstack/react-start": "latest",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "motion": "^13.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "shaders": "^3.1.463",

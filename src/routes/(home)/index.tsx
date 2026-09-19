@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 
 import { AboutSection } from "./-components/AboutSection";
+import { ContactSection } from "./-components/ContactSection";
 import { HeroSection } from "./-components/HeroSection";
 import { KeyDatesSection } from "./-components/KeyDatesSection";
 import { SponsorsSection } from "./-components/SponsorsSection";
@@ -25,6 +26,7 @@ function Home() {
         <ThemeSection />
         <KeyDatesSection />
         <VenueSection />
+        <ContactSection />
       </main>
 
       <Footer />
