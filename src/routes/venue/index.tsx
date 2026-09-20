@@ -7,6 +7,9 @@ import { Header } from "@/components/layout/Header";
 import { VenueSection } from "@/routes/(home)/-components/VenueSection";
 
 export const Route = createFileRoute("/venue/")({
+  head: () => ({
+    meta: [{ title: "Venue • Emerge 2027" }],
+  }),
   component: RouteComponent,
 });
 

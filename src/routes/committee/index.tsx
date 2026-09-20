@@ -10,6 +10,9 @@ import type { CommitteeMember } from "@/data/committee";
 import { CommitteeMemberCard } from "./-components/CommitteeMemberCard";
 
 export const Route = createFileRoute("/committee/")({
+  head: () => ({
+    meta: [{ title: "Committee • Emerge 2027" }],
+  }),
   component: RouteComponent,
 });
 

@@ -37,7 +37,7 @@ const markdownComponents = {
 
 export const Route = createFileRoute("/call-for-papers/")({
   head: () => ({
-    meta: [{ title: "Submissions • Emerge 2027" }],
+    meta: [{ title: "Call for Papers • Emerge 2027" }],
   }),
   component: CallForSubmissions,
 });

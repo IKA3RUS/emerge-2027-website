@@ -5,6 +5,9 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 
 export const Route = createFileRoute("/workshops/")({
+  head: () => ({
+    meta: [{ title: "Workshops • Emerge 2027" }],
+  }),
   component: RouteComponent,
 });
 

@@ -7,6 +7,9 @@ import { Header } from "@/components/layout/Header";
 import { KeyDatesSection } from "@/routes/(home)/-components/KeyDatesSection";
 
 export const Route = createFileRoute("/dates/")({
+  head: () => ({
+    meta: [{ title: "Key Dates • Emerge 2027" }],
+  }),
   component: RouteComponent,
 });
 
