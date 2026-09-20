@@ -13,6 +13,7 @@ import { Route as homeIndexRouteImport } from './routes/(home)/index'
 import { Route as CallForPapersIndexRouteImport } from './routes/call-for-papers/index'
 import { Route as CommitteeIndexRouteImport } from './routes/committee/index'
 import { Route as DatesIndexRouteImport } from './routes/dates/index'
+import { Route as SubmissionsIndexRouteImport } from './routes/submissions/index'
 import { Route as VenueIndexRouteImport } from './routes/venue/index'
 import { Route as WorkshopsIndexRouteImport } from './routes/workshops/index'
 
@@ -36,6 +37,11 @@ const DatesIndexRoute = DatesIndexRouteImport.update({
   path: '/dates/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SubmissionsIndexRoute = SubmissionsIndexRouteImport.update({
+  id: '/submissions/',
+  path: '/submissions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VenueIndexRoute = VenueIndexRouteImport.update({
   id: '/venue/',
   path: '/venue/',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/call-for-papers/': typeof CallForPapersIndexRoute
   '/committee/': typeof CommitteeIndexRoute
   '/dates/': typeof DatesIndexRoute
+  '/submissions/': typeof SubmissionsIndexRoute
   '/venue/': typeof VenueIndexRoute
   '/workshops/': typeof WorkshopsIndexRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/call-for-papers': typeof CallForPapersIndexRoute
   '/committee': typeof CommitteeIndexRoute
   '/dates': typeof DatesIndexRoute
+  '/submissions': typeof SubmissionsIndexRoute
   '/venue': typeof VenueIndexRoute
   '/workshops': typeof WorkshopsIndexRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/call-for-papers/': typeof CallForPapersIndexRoute
   '/committee/': typeof CommitteeIndexRoute
   '/dates/': typeof DatesIndexRoute
+  '/submissions/': typeof SubmissionsIndexRoute
   '/venue/': typeof VenueIndexRoute
   '/workshops/': typeof WorkshopsIndexRoute
 }
@@ -79,17 +88,25 @@ export interface FileRouteTypes {
     | '/call-for-papers/'
     | '/committee/'
     | '/dates/'
+    | '/submissions/'
     | '/venue/'
     | '/workshops/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/call-for-papers' | '/committee' | '/dates' | '/venue' | '/workshops'
+    | '/'
+    | '/call-for-papers'
+    | '/committee'
+    | '/dates'
+    | '/submissions'
+    | '/venue'
+    | '/workshops'
   id:
     | '__root__'
     | '/(home)/'
     | '/call-for-papers/'
     | '/committee/'
     | '/dates/'
+    | '/submissions/'
     | '/venue/'
     | '/workshops/'
   fileRoutesById: FileRoutesById
@@ -99,6 +116,7 @@ export interface RootRouteChildren {
   CallForPapersIndexRoute: typeof CallForPapersIndexRoute
   CommitteeIndexRoute: typeof CommitteeIndexRoute
   DatesIndexRoute: typeof DatesIndexRoute
+  SubmissionsIndexRoute: typeof SubmissionsIndexRoute
   VenueIndexRoute: typeof VenueIndexRoute
   WorkshopsIndexRoute: typeof WorkshopsIndexRoute
 }
@@ -133,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DatesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/submissions/': {
+      id: '/submissions/'
+      path: '/submissions'
+      fullPath: '/submissions/'
+      preLoaderRoute: typeof SubmissionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/venue/': {
       id: '/venue/'
       path: '/venue'
@@ -155,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   CallForPapersIndexRoute: CallForPapersIndexRoute,
   CommitteeIndexRoute: CommitteeIndexRoute,
   DatesIndexRoute: DatesIndexRoute,
+  SubmissionsIndexRoute: SubmissionsIndexRoute,
   VenueIndexRoute: VenueIndexRoute,
   WorkshopsIndexRoute: WorkshopsIndexRoute,
 }
