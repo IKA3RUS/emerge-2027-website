@@ -18,7 +18,7 @@ const committee: CommitteeMember[] = [
     contact: false,
   },
   {
-    name: "R. Venkatesh",
+    name: "Venkatesh Rajamanickam",
     role: "General Chair",
     contact: false,
   },
