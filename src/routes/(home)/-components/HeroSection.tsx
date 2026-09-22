@@ -120,9 +120,14 @@ function HeroSection() {
             src="/images/common/emerge-2027-logo-monochrome-dark.png"
             className="z-1 max-h-[20vh] drop-shadow-2xl drop-shadow-black transition-[height,drop-shadow] md:h-30 lg:h-40 xl:h-50 2xl:h-65"
           />
-          <p className="text-center text-slate-300 drop-shadow-xs drop-shadow-black">
-            Conference • 26-27 Feb 2027 • IDC School of Design, IIT Bombay
-          </p>
+          <div className="flex flex-col gap-4 lg:items-start">
+            <p className="text-center text-slate-500 drop-shadow-xs drop-shadow-black">
+              Conference • Emerging Design Inquiry
+            </p>
+            <p className="text-center text-slate-300 drop-shadow-xs drop-shadow-black">
+              26-27 Feb 2027 • IDC School of Design, IIT Bombay
+            </p>
+          </div>
         </div>
 
         <div className="flex flex-col gap-2 lg:flex-row">
