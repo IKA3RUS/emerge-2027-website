@@ -28,8 +28,8 @@ function SponsorsSection() {
           <img
             src="/images/common/iit-bombay-logo.webp"
             alt="IIT Bombay"
-            width={102}
-            height={100}
+            width={212}
+            height={208}
             className="h-13 w-auto"
           />
           <img

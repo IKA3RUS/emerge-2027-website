@@ -43,8 +43,8 @@ function ContactCard({ name, role, phone, email }: ContactCardProps) {
         <img
           src="/images/common/iit-bombay-logo-dark.webp"
           alt="IIT Bombay"
-          width={102}
-          height={100}
+          width={212}
+          height={208}
           className="h-9 w-auto"
           draggable={false}
         />
