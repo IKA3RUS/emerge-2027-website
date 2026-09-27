@@ -34,6 +34,7 @@ The word limit for Essay is up to 5000 words; there is no such limit for Poster 
 - **Proceedings:** Design Research Society
 - **Length:** 5000 to 8000 words. No limit for page numbers.
 - **Anonymous submission:** Yes
-- **Online Submission/Register:** Submission link will be released soon.
+- **Submission:** [Submit Paper](https://cmt3.research.microsoft.com/EMERGE2027)
+- **Registration:** Opens 16 December 2026
 
 At least one author for each accepted submission must register and present it at the seminar. Presenters under the age of 35 who have a selected paper, poster or a demo will get a waiver of registration fees. The seminar will also be able to cover travel and accommodation costs for a limited number of presenters under the age of 35. Instructions about this will be sent along with the acceptance notifications.

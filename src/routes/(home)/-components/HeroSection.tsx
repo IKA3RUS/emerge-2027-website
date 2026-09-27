@@ -135,6 +135,20 @@ function HeroSection() {
             View Call For Papers
           </Button>
           <Button
+            variant="secondary"
+            nativeButton={false}
+            render={
+              <a
+                href="https://cmt3.research.microsoft.com/EMERGE2027"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
+          >
+            Submit Paper
+            <ArrowOutwardIcon className="size-4" />
+          </Button>
+          <Button
             disabled
             className="disabled:bg-slate-900 disabled:text-slate-700"
           >
