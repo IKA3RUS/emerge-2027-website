@@ -113,14 +113,6 @@ function HeroSection() {
             Submit Paper
             <ArrowOutwardIcon className="size-4" />
           </Button>
-          <Button
-            disabled
-            className="disabled:bg-slate-900 disabled:text-slate-700"
-          >
-            Register
-            <div className="bg-slate-800 px-1 text-slate-600">Opens 16 Dec</div>
-            <ArrowOutwardIcon className="size-4 fill-slate-700" />
-          </Button>
         </div>
       </div>
     </div>
