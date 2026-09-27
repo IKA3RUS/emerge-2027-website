@@ -108,7 +108,7 @@ function KeyDateItem({ item, current, today, registerRef }: KeyDateItemProps) {
       </time>
       <div
         data-when={when}
-        className="group/key-date-item-label flex h-20 flex-1 flex-col items-start justify-center gap-2 rounded-full bg-gray-100 px-6 py-4 data-[when=current]:rounded-none data-[when=current]:font-medium data-[when=current]:text-black data-[when=future]:font-medium data-[when=future]:text-black data-[when=past]:text-slate-400 sm:flex-row sm:items-center sm:justify-between"
+        className="group/key-date-item-label flex h-20 flex-1 flex-col items-start justify-center gap-2 rounded-full bg-gray-100 px-6 py-4 data-[when=current]:rounded-none data-[when=current]:font-medium data-[when=current]:text-black data-[when=future]:font-medium data-[when=future]:text-black data-[when=past]:text-slate-600 sm:flex-row sm:items-center sm:justify-between"
       >
         <span className="order-2 sm:order-1">{item.name}</span>
         {when === "current" && (

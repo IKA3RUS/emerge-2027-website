@@ -16,8 +16,11 @@ function AboutSection() {
       </p>
 
       <img
-        src="/images/common/emerge-2027-logo-monochrome-icon.png"
-        className="h-8"
+        src="/images/common/emerge-2027-logo-monochrome-icon.webp"
+        alt="Emerge 2027"
+        width={718}
+        height={600}
+        className="h-8 w-auto"
       />
     </div>
   );

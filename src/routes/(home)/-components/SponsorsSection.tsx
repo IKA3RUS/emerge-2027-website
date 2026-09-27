@@ -7,14 +7,18 @@ function SponsorsSection() {
         </p>
         <div className="flex items-center gap-8">
           <img
-            src="/images/common/myas-logo.png"
+            src="/images/common/myas-logo.webp"
             alt="Ministry of Youth Affairs and Sports"
-            className="h-12"
+            width={197}
+            height={100}
+            className="h-12 w-auto"
           />
           <img
-            src="/images/common/my-bharat-logo.png"
+            src="/images/common/my-bharat-logo.webp"
             alt="My Bharat"
-            className="h-12"
+            width={384}
+            height={160}
+            className="h-12 w-auto"
           />
         </div>
       </div>
@@ -22,14 +26,18 @@ function SponsorsSection() {
         <p className="text-center text-xs text-black md:text-left">HOSTED BY</p>
         <div className="flex items-center gap-8">
           <img
-            src="/images/common/iit-bombay-logo.png"
+            src="/images/common/iit-bombay-logo.webp"
             alt="IIT Bombay"
-            className="h-13"
+            width={102}
+            height={100}
+            className="h-13 w-auto"
           />
           <img
-            src="/images/common/idc-logo.png"
+            src="/images/common/idc-logo.webp"
             alt="IDC School of Design"
-            className="h-6"
+            width={589}
+            height={100}
+            className="h-6 w-auto"
           />
         </div>
       </div>

@@ -6,8 +6,11 @@ function Footer({ className }: { className?: string }) {
       <div className="w-full bg-slate-200 p-4 lg:p-12">
         <div className="mx-auto flex max-w-[1920px] flex-col items-center justify-between gap-4 lg:items-end">
           <img
-            src="/images/common/emerge-2027-logo-monochrome.png"
-            className="w-full"
+            src="/images/common/emerge-2027-logo-monochrome.webp"
+            alt="Emerge 2027"
+            width={2127}
+            height={612}
+            className="h-auto w-full"
           />
           <p className="text-sm text-emerge-blue uppercase select-none">
             © 2026-27. All Rights Reserved.
@@ -19,14 +22,18 @@ function Footer({ className }: { className?: string }) {
           <p className="text-xs text-black">SPONSORED BY</p>
           <div className="flex items-center gap-4">
             <img
-              src="/images/common/myas-logo.png"
+              src="/images/common/myas-logo.webp"
               alt="Ministry of Youth Affairs and Sports"
-              className="h-12"
+              width={197}
+              height={100}
+              className="h-12 w-auto"
             />
             <img
-              src="/images/common/my-bharat-logo.png"
+              src="/images/common/my-bharat-logo.webp"
               alt="My Bharat"
-              className="h-12"
+              width={384}
+              height={160}
+              className="h-12 w-auto"
             />
           </div>
         </div>
@@ -34,14 +41,18 @@ function Footer({ className }: { className?: string }) {
           <p className="text-xs text-black">HOSTED BY</p>
           <div className="flex items-center gap-6">
             <img
-              src="/images/common/iit-bombay-logo.png"
+              src="/images/common/iit-bombay-logo.webp"
               alt="IIT Bombay"
-              className="h-13"
+              width={102}
+              height={100}
+              className="h-13 w-auto"
             />
             <img
-              src="/images/common/idc-logo.png"
+              src="/images/common/idc-logo.webp"
               alt="IDC School of Design"
-              className="h-6"
+              width={589}
+              height={100}
+              className="h-6 w-auto"
             />
           </div>
         </div>

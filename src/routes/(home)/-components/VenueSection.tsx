@@ -4,7 +4,10 @@ function VenueSection() {
   return (
     <div className="relative mx-auto mt-40 flex max-w-150 scroll-mt-25 flex-col items-start gap-8 p-4">
       <img
-        src="/images/home/iit-map.jpg"
+        src="/images/home/iit-map.webp"
+        alt="Map showing IDC School of Design at IIT Bombay"
+        width={600}
+        height={310}
         className="absolute inset-0 size-full object-cover"
       />
       <div className="top-4 left-4 z-1 flex max-w-80 flex-col bg-white p-4">

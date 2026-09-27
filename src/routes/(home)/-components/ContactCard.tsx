@@ -18,7 +18,7 @@ function ContactCard({ name, role, phone, email }: ContactCardProps) {
           <span className="text-xl font-medium text-white lowercase transition-[font-size] xl:text-2xl">
             {name}
           </span>
-          <span className="text-white/50">{role}</span>
+          <span className="text-white/80">{role}</span>
         </div>
         <EmergeLogoIcon className="-mt-5 size-4 fill-white xl:size-5" />
       </div>
@@ -27,13 +27,13 @@ function ContactCard({ name, role, phone, email }: ContactCardProps) {
           {phone && (
             <a href={`tel:${phone}`} className="flex items-center gap-2">
               <CallIcon className="size-4 fill-white" />
-              <span className="text-amber-400">{phone}</span>
+              <span className="text-amber-300">{phone}</span>
             </a>
           )}
           {email && (
             <a href={`mailto:${email}`} className="flex items-center gap-2">
               <MailIcon className="size-4 fill-white" />
-              <span className="text-amber-400">{email}</span>
+              <span className="text-amber-300">{email}</span>
             </a>
           )}
         </div>
@@ -41,15 +41,19 @@ function ContactCard({ name, role, phone, email }: ContactCardProps) {
 
       <div className="flex items-center gap-4">
         <img
-          src="/images/common/iit-bombay-logo-dark.png"
+          src="/images/common/iit-bombay-logo-dark.webp"
           alt="IIT Bombay"
-          className="h-9"
+          width={102}
+          height={100}
+          className="h-9 w-auto"
           draggable={false}
         />
         <img
-          src="/images/common/idc-logo-dark.png"
+          src="/images/common/idc-logo-dark.webp"
           alt="IDC School of Design"
-          className="h-4"
+          width={589}
+          height={100}
+          className="h-4 w-auto"
           draggable={false}
         />
       </div>

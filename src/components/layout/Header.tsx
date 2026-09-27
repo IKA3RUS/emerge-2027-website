@@ -98,7 +98,10 @@ function SmallScreenNav({
   return (
     <div className="flex xl:hidden">
       <Sheet>
-        <SheetTrigger className="rotate-0 bg-black p-1 transition-[rotate] duration-300 hover:cursor-pointer data-popup-open:rotate-180">
+        <SheetTrigger
+          aria-label="Open menu"
+          className="rotate-0 bg-black p-1 transition-[rotate] duration-300 hover:cursor-pointer data-popup-open:rotate-180"
+        >
           <DensityMediumIcon className="size-6 fill-white mix-blend-difference" />
         </SheetTrigger>
         <SheetContent side="top" className="gap-9 border-8 border-black p-9">
@@ -108,8 +111,11 @@ function SmallScreenNav({
                 render={
                   <Link to="/">
                     <img
-                      src="/images/common/emerge-2027-logo.png"
-                      className="h-12"
+                      src="/images/common/emerge-2027-logo.webp"
+                      alt="Emerge 2027"
+                      width={2127}
+                      height={612}
+                      className="h-12 w-auto"
                     />
                   </Link>
                 }
@@ -173,7 +179,13 @@ function Header({
       )}
     >
       <Link to="/" className="hidden sm:block">
-        <img src="/images/common/emerge-2027-logo.png" className="h-12" />
+        <img
+          src="/images/common/emerge-2027-logo.webp"
+          alt="Emerge 2027"
+          width={2127}
+          height={612}
+          className="h-12 w-auto"
+        />
       </Link>
       <LargeScreenNav links={largeScreenNavLinks} />
       <SmallScreenNav links={smallScreenNavLinks} />
