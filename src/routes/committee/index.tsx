@@ -46,6 +46,7 @@ function RouteComponent() {
                     key={member.name}
                     name={member.name}
                     role={member.role}
+                    email={member.email}
                   />
                 ))}
               </div>
