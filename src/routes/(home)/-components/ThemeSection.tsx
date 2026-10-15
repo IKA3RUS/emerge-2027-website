@@ -10,11 +10,11 @@ function ThemeSection() {
         </h2>
 
         <div className="flex flex-col gap-1 lg:flex-row">
-          <div className="w-full bg-emerge-blue p-12 text-7xl font-light selection:bg-amber-400 selection:text-emerge-blue lg:w-min">
+          <div className="w-full bg-emerge-blue p-6 text-4xl font-light wrap-break-word min-[400px]:p-8 min-[400px]:text-5xl sm:p-12 sm:text-7xl selection:bg-amber-400 selection:text-emerge-blue lg:w-min">
             product design for a changing world
           </div>
 
-          <div className="flex h-full w-full items-end p-12 text-slate-800 lg:border-t">
+          <div className="flex h-full w-full items-end p-6 text-slate-800 min-[400px]:p-8 sm:p-12 lg:border-t">
             <p className="max-w-150 selection:bg-emerge-blue selection:text-white">
               Product design today is undergoing a rapid and often unpredictable
               transformation driven by advances in digital and computational

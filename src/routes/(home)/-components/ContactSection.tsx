@@ -16,7 +16,7 @@ function ContactSection() {
             CONTACT
           </h2>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-4 border-t border-emerge-blue pt-4 md:flex-row xl:pt-12">
+        <div className="flex w-full flex-col items-center justify-center gap-4 sm:border-t sm:border-emerge-blue sm:pt-4 md:flex-row xl:pt-12">
           {contacts.map((member) => (
             <ContactCard key={member.email} {...member} />
           ))}
