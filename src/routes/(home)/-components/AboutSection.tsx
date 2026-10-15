@@ -10,9 +10,8 @@ function AboutSection() {
         development, industrial and human-centred design to discuss current and
         future issues in Product Design. Emerge 2027 will be hosted by the{" "}
         <strong> IDC School of Design</strong> at the Indian Institute of
-        Technology Bombay, Mumbai, on <strong>Friday, 26th</strong> and{" "}
-        <strong>Saturday, 27th February</strong> 2027, with pre-conference
-        workshops on Thursday, 25th February 2027.
+        Technology Bombay, Mumbai, on <strong>Thursday, 25th</strong> to{" "}
+        <strong>Saturday, 27th February</strong> 2027.
       </p>
 
       <img

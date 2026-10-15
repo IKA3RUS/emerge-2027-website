@@ -90,7 +90,7 @@ function HeroSection() {
               Conference • Emerging Design Inquiry
             </p>
             <p className="text-center text-slate-300 drop-shadow-xs drop-shadow-black">
-              26-27 Feb 2027 • IDC School of Design, IIT Bombay
+              25-27 Feb 2027 • IDC School of Design, IIT Bombay
             </p>
           </div>
         </div>

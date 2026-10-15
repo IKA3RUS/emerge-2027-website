@@ -20,7 +20,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Emerge 2027: the 2nd international conference on Product Design for a Changing World, hosted by IDC School of Design, IIT Bombay, 26-27 Feb 2027.",
+          "Emerge 2027: the 2nd international conference on Product Design for a Changing World, hosted by IDC School of Design, IIT Bombay, 25-27 Feb 2027.",
       },
     ],
     links: [
