@@ -13,7 +13,7 @@ const events: KeyDateEvent[] = [
   },
   {
     id: "full-paper-submission",
-    date: "2026-11-15T00:00:00",
+    date: "2026-11-30T23:59:59",
     name: "Full Paper Submission Due",
   },
   {
